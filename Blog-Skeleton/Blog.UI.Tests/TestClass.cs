@@ -19,8 +19,9 @@ namespace Blog.UI.Tests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
 
             driver.Navigate().GoToUrl(@"http://localhost:60639/Article/List");
-            var logo = wait.Until(w => w.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a")));
-            
+            Thread.Sleep(2000);
+            var logo = driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a"));
+            //wait.Until(w => w.
             Assert.AreEqual("SOFTUNI BLOG", logo.Text);
         }
     }
